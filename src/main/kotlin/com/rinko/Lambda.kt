@@ -1,5 +1,7 @@
 package com.rinko
 
+import javax.sound.midi.Soundbank
+
 fun sum(a: Int, b: Int): Int {
     return a + b
 }
@@ -53,8 +55,14 @@ fun main(args: Array<String>) {
         }
     }
 
+    println(lambdaA)    //Function1<java.lang.String, java.lang.String>
+    println(noName)     //Function1<java.lang.Integer, java.lang.String>
+    println(lambdaA is (string:String)->String) //true
+    println(::funcA is (string:String)->String) //true
 
 }
+
+val noName = fun(int:Int) = "开始匿名$int"
 
 fun funcA(string: String) = "开始funcA$string"
 fun funcB(action: (String) -> String) = "${action("funcB")}结束"
